@@ -1,0 +1,4 @@
+<template>
+    <input type="text" placeholder="Search for music..">
+    <button>Search</button>
+</template>
