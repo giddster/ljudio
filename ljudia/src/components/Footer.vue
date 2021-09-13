@@ -1,7 +1,7 @@
 <template>
     <div class="footer-main">
         <div class="footer-left">
-            <strong>&copy; Christian Elm 2021 </strong>
+            <a href="https://www.linkedin.com/in/christian-elm/" target="blank">&copy; Christian Elm 2021 </a>
         </div>
 
         <div class="footer-middle">
@@ -13,24 +13,21 @@
         </div>
 
         <div class="footer-right">
-            <i>App made with <a href="https://vuejs.org/">Vue</a> </i>
+            <i>App made with <a href="https://vuejs.org/" target="blank">Vue</a> </i>
         </div>
     </div>
 </template>
 
 <style>
+
 .footer-main{
     background: #22577a;
-    height: 10vh;
     color: #80ed99;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2vh;
+    height: 100%;
 }
 
 .footer-main nav a, .footer-main a{
@@ -40,7 +37,7 @@
 
 .footer-main nav a:hover, .footer-main a:hover{
     color: #80ed99;
-    zoom: 1.1;
+    zoom: 1.3;
 }
 
 .footer-left {

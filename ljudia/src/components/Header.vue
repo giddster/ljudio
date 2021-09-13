@@ -9,7 +9,7 @@
             </router-link>
         </div>
 
-        <div class="header-center">
+        <div class="header-middle">
             <SearchComponent />
         </div>
 
@@ -23,19 +23,16 @@
 .header-main{
     background: #38a3a5;
     color: #22577a;
-    height: 10vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
+    height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .header-left {
     width: 33vw;
+    height: 70%;
     font-size: 3vh;
+    outline: 1px solid black;
 }
 
 .header-left a {
@@ -45,14 +42,20 @@
 
 .header-left a:hover{
     zoom: 1.1;
+    color: #0063a5;
 }
 
 .header-middle {
     width: 33vw;
+    height: 70%;
+    outline: 1px solid black;
+
 }
 
 .header-right {
     width: 33vw;
+    height: 70%;
+    outline: 1px solid black;
 }
 
 </style>
