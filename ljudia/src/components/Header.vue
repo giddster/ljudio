@@ -22,7 +22,7 @@
 <style>
 
 .header-main{
-    background: #38a3a5;
+    background: #38a3a5c9;
     color: #22577a;
     height: 100%;
     display: flex;

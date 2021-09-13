@@ -21,7 +21,7 @@
 <style>
 
 .footer-main{
-    background: #22577a;
+    background: #22577ae1;
     color: #80ed99;
     display: flex;
     justify-content: center;
@@ -37,7 +37,7 @@
 
 .footer-main nav a:hover, .footer-main a:hover{
     color: #80ed99;
-    zoom: 1.3;
+    zoom: 1.2;
 }
 
 .footer-left {
