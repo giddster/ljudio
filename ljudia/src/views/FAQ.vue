@@ -60,10 +60,16 @@
 
 #faq-heading{
     text-align: center;
+    font-size: 5vh;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
 
 .faq-container{
-    margin: 2vh 2vw;
+    margin: 0 10vw 0 10vw;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 h1, details{
@@ -71,7 +77,7 @@ h1, details{
 }
 
 details{
-    font-size: 2.5vh;
+    font-size: 3vh;
     padding: 1vh 0;
     cursor: pointer;
 }

@@ -14,8 +14,12 @@
 </template>
 
 <style>
+/* font-family: 'Bungee', cursive;
+font-family: 'IBM Plex Sans Arabic', sans-serif;
+font-family: 'Roboto', sans-serif; */
 
 body {
+    margin: 0;
     background: #91daba;
     height: 60vh;
     width: 100%;
@@ -27,6 +31,7 @@ header, footer {
     width: 100vw;
     height: 8vh;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 header {

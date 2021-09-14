@@ -1,7 +1,7 @@
 <template>
     <div class="footer-main">
         <div class="footer-left">
-            <a href="https://www.linkedin.com/in/christian-elm/" target="blank">&copy; Christian Elm 2021 </a>
+            &copy; Christian Elm 2021
         </div>
 
         <div class="footer-middle">
@@ -13,7 +13,7 @@
         </div>
 
         <div class="footer-right">
-            <i>App made with <a href="https://vuejs.org/" target="blank">Vue</a> </i>
+            <em>App made with <a href="https://vuejs.org/" target="blank">Vue</a> </em>
         </div>
     </div>
 </template>

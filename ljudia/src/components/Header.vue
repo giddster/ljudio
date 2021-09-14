@@ -16,24 +16,33 @@
         <div class="header-right">
             <QueueComponent />
         </div>
+
     </div>
 </template>
 
 <style>
+/* font-family: 'Bungee', cursive;
+font-family: 'IBM Plex Sans Arabic', sans-serif;
+font-family: 'Roboto', sans-serif; */
 
 .header-main{
     background: #38a3a5c9;
     color: #22577a;
     height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.header-left, .header-middle, .header-right{
+    padding: 1vh 0;
+    outline: 1px solid black;
 }
 
 .header-left {
     width: 33vw;
-    height: 70%;
-    font-size: 3vh;
-    outline: 1px solid black;
+    font-size: 3.5vh;
+    font-family: 'Bungee', cursive;
 }
 
 .header-left a {
@@ -48,15 +57,11 @@
 
 .header-middle {
     width: 33vw;
-    height: 70%;
-    outline: 1px solid black;
-
 }
 
 .header-right {
     width: 33vw;
-    height: 70%;
-    outline: 1px solid black;
+    font-size: 3vh;
 }
 
 </style>
