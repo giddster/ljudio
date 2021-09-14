@@ -21,9 +21,6 @@
 </template>
 
 <style>
-/* font-family: 'Bungee', cursive;
-font-family: 'IBM Plex Sans Arabic', sans-serif;
-font-family: 'Roboto', sans-serif; */
 
 .header-main{
     background: #38a3a5c9;

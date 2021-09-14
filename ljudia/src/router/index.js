@@ -3,6 +3,7 @@ import NotFound from "../views/NotFound.vue"
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import FAQ from '../views/FAQ.vue'
+import SearchResults from '../views/SearchResults.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/faq',
     name: 'FAQ',
     component: FAQ
+  },
+  {
+    path: '/search',
+    name: 'SearchResults',
+    component: SearchResults
   }
 ]
 
