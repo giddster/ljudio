@@ -11,6 +11,8 @@
     
   </div>
 
+  <Player />
+
   <footer>
     <Footer />
   </footer>
@@ -57,9 +59,10 @@ footer {
 
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import Player from '@/components/Player.vue'
 
 export default {
   
-  components: { Header, Footer }
+  components: { Header, Footer, Player }
 }
 </script>
