@@ -77,7 +77,7 @@ h1, details{
 }
 
 details{
-    font-size: 3vh;
+    font-size: 2.5vh;
     padding: 1vh 0;
     cursor: pointer;
 }
