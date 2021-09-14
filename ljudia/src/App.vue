@@ -43,7 +43,6 @@ footer {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif; 
   margin: 10vh 2vw 0vh 2vw;
 }
 

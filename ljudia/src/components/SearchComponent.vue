@@ -16,17 +16,26 @@
     border-right: none;
     border-radius: 5px 0 0 5px;
     outline: none;
-    color: #9DBFAF;
+    color: gray;
+}
+
+.searchbar:hover, .searchbar:focus {
+  background-color: rgb(236, 235, 235);
 }
 
 .search-btn{
-    background: #0083ee;
-    height: 3vh;
+    background: #22577a;
+    height: 3.4vh;
     color: white;
     font-size: 17px;
-    border: 2px solid #0083ee;
+    border: 2px solid #22577a;
     border-left: none; 
     cursor: pointer;
+}
+
+.search-btn:hover{
+    background: #00B4CC;
+    border: 2px solid #00B4CC;
 }
 
 </style>

@@ -36,7 +36,7 @@ font-family: 'Roboto', sans-serif; */
 
 .header-left, .header-middle, .header-right{
     padding: 1vh 0;
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
 }
 
 .header-left {
