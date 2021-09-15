@@ -11,9 +11,9 @@
     
   </div>
 
-  <Player />
 
   <footer>
+    <Player />
     <Footer />
   </footer>
   
