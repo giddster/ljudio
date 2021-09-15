@@ -9,22 +9,22 @@
         </div>
 
         <div class="miniplayer-buttons"> 
-            <i class="fas fa-step-backward mini-buttons" id=""></i>
-            <i class="fas fa-play mini-buttons"></i>
-            <i class="fas fa-pause mini-buttons"></i>
-            <i class="fas fa-step-forward mini-buttons"></i>
-            
+            <i class="fas fa-step-backward mini-buttons" id="mini-previousbutton"></i>
+            <i class="fas fa-play mini-buttons" id="mini-playbutton"></i>
+            <i class="fas fa-pause mini-buttons" id="mini-pausebutton"></i>
+            <i class="fas fa-step-forward mini-buttons" id="mini-nextbutton"></i>
         </div>
 
         <div class="miniplayer-volume"> 
-            <i class="fas fa-volume-up mini-buttons"></i>
+            <i class="fas fa-volume-up mini-buttons" id="mini-maxvolume"></i>
             <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-            <!-- <i class="fas fa-volume-down mini-buttons">less than 50%</i>
-            <i class="fas fa-volume-mute mini-buttons">mute</i> -->
+            <i class="fas fa-volume-down mini-buttons" id="mini-lowvolume">less than 50%</i>
+            <i class="fas fa-volume-mute mini-buttons" id="mini-mutedvolume"></i>
         </div>
 
         <div class="miniplayer-expander"> 
-            <i class="fas fa-angle-double-up mini-buttons"></i> Expand player
+            <i class="fas fa-angle-double-up mini-buttons" id="mini-expandbutton"></i> 
+            <p>Expand player</p>
         </div>
 
     </div>
@@ -33,6 +33,8 @@
 
 <style scoped>
 
+
+/* minified player */
 .miniplayer-parent {
     display: grid;
     align-items: center;
@@ -45,6 +47,7 @@
     left: 0;
     right: 0;
     bottom: 8.2vh;
+    padding-top: 1vh;
 }
 
 .miniplayer-buttons, .miniplayer-volume, .miniplayer-expander {
@@ -57,6 +60,8 @@
 .miniplayer-metadata { 
     grid-area: 1 / 1 / 2 / 2;
     margin-left: 1vw;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    color: #22577a;
 }
 .miniplayer-buttons { 
     grid-area: 1 / 2 / 2 / 3; 
@@ -68,17 +73,25 @@
 }
 .miniplayer-expander { 
     grid-area: 1 / 4 / 2 / 5; 
-
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    color: #22577a;
+    font-size: 2vh;
 }
 
 .mini-buttons{
-    font-size: 4vh;
+    font-size: 4.5vh;
+    padding: 0.3vw;
 }
-.previousbutton, .nextbutton{
+
+#mini-previousbutton, #mini-nextbutton, #mini-maxvolume, #mini-lowvolume, #mini-mutedvolume{
     color: #22577a;
 }
-.playbutton{
+#mini-playbutton, #mini-pausebutton, #mini-expandbutton{
     color: #57cc99;
+}
+
+#mini-pausebutton, #mini-lowvolume, #mini-mutedvolume{
+    display: none;
 }
 
 </style>
