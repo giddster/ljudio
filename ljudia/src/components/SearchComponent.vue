@@ -1,14 +1,13 @@
 <template>
     
     <form>
-        <input type="text" class="searchbar" placeholder="Search for music..">
-        <router-link :to="'/search'" class="search-btn"> <i class="fas fa-search"> </i> </router-link>
+        <input type="text" class="searchbar" placeholder="Search for music.." v-model="searchString" required>
+        <router-link @click="search()" :to="'/search'" class="search-btn"> <i class="fas fa-search"> </i> </router-link>
     </form>
     
 </template>
 
 <style scoped>
-
 .searchbar{
     width: 70%;
     height: 3vh;
@@ -38,3 +37,17 @@
 }
 
 </style>
+
+<script>
+
+export default {
+    methods: {
+        search() {
+        this.$store.dispatch('search', this.searchString)
+        }
+    },
+    
+    
+}
+
+</script>

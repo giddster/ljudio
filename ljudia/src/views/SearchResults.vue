@@ -1,6 +1,9 @@
 <template>
-    <h1>Your results for "never gonna give you up"</h1>
-
+    <h1>Your results for "{{ searchString }}"</h1>
+    
+    <div v-for="searchResult in searchResults" :key="searchResult.videoId">
+    
+    </div>
     
 </template>
 
