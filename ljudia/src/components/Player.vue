@@ -9,21 +9,38 @@
         </div>
 
         <div class="miniplayer-buttons"> 
-            <i class="fas fa-step-backward mini-buttons" id="mini-previousbutton"></i>
-            <i class="fas fa-play mini-buttons" id="mini-playbutton"></i>
-            <i class="fas fa-pause mini-buttons" id="mini-pausebutton"></i>
-            <i class="fas fa-step-forward mini-buttons" id="mini-nextbutton"></i>
+            <button>
+                <i class="fas fa-step-backward mini-buttons" id="mini-previousbutton"></i>
+            </button>
+            <button>
+                <i class="fas fa-play mini-buttons" id="mini-playbutton"></i>
+            </button>
+            <button>
+                <i class="fas fa-pause mini-buttons" id="mini-pausebutton"></i>
+            </button>
+            <button>
+                <i class="fas fa-step-forward mini-buttons" id="mini-nextbutton"></i>
+            </button>
         </div>
 
         <div class="miniplayer-volume"> 
-            <i class="fas fa-volume-up mini-buttons" id="mini-maxvolume"></i>
+            <button>
+                <i class="fas fa-volume-up mini-buttons" id="mini-maxvolume"></i>
+            </button>
+            <button>
+                <i class="fas fa-volume-down mini-buttons" id="mini-lowvolume">less than 50%</i>
+            </button>
+            <button>
+                <i class="fas fa-volume-mute mini-buttons" id="mini-mutedvolume"></i>
+            </button>
+
             <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-            <i class="fas fa-volume-down mini-buttons" id="mini-lowvolume">less than 50%</i>
-            <i class="fas fa-volume-mute mini-buttons" id="mini-mutedvolume"></i>
         </div>
 
         <div class="miniplayer-expander"> 
-            <i class="fas fa-angle-double-up mini-buttons" id="mini-expandbutton"></i> 
+            <button>
+                <i class="fas fa-angle-double-up mini-buttons" id="mini-expandbutton"></i> 
+            </button>
             <p>Expand player</p>
         </div>
 
@@ -32,7 +49,6 @@
 </template>
 
 <style scoped>
-
 
 /* minified player */
 .miniplayer-parent {
@@ -65,7 +81,15 @@
 }
 .miniplayer-buttons { 
     grid-area: 1 / 2 / 2 / 3; 
-    
+}
+
+button {
+    background: #38a3a500;
+    border: none;
+}
+
+button:hover{
+    background: #38a3a5;
 }
 .miniplayer-volume { 
     grid-area: 1 / 3 / 2 / 4; 
@@ -90,7 +114,7 @@
     color: #57cc99;
 }
 
-#mini-pausebutton, #mini-lowvolume, #mini-mutedvolume{
+#mini-lowvolume, #mini-mutedvolume{
     display: none;
 }
 
