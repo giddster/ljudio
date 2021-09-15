@@ -2,7 +2,7 @@
     
     <form>
         <input type="text" class="searchbar" placeholder="Search for music.." v-model="searchString" required>
-        <router-link @click="search()" :to="'/search'" class="search-btn"> <i class="fas fa-search"> </i> </router-link>
+        <router-link @click="search()" :to="'/search'" class="search-btn" tag="button"> <i class="fas fa-search"> </i> </router-link>
     </form>
     
 </template>
