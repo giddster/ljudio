@@ -13,12 +13,12 @@
                 <i class="fas fa-step-backward mini-buttons" id="mini-previousbutton"></i>
             </button>
 
-            <button @click="play('DXxeOvvNNwc')">
-                <i class="fas fa-play mini-buttons" id="mini-playbutton"></i>
+            <button >
+                <i @click="play('DXxeOvvNNwc')" class="fas fa-play mini-buttons" id="mini-playbutton"></i>
             </button>
 
-            <button @click="pause()">
-                <i class="fas fa-pause mini-buttons" id="mini-pausebutton"></i>
+            <button >
+                <i @click="pause()" class="fas fa-pause mini-buttons" id="mini-pausebutton"></i>
             </button>
 
             <button>
@@ -29,7 +29,7 @@
 
         <div class="miniplayer-volume"> 
             <button @click="toggleMute()">
-                <i v-if="!isMuted && volume >= 50" class="fas fa-volume-up mini-buttons" id="mini-maxvolume"></i>
+                <i v-if="!isMuted && volume >= 40" class="fas fa-volume-up mini-buttons" id="mini-maxvolume"></i>
                 <i v-else-if="!isMuted && volume >= 1" class="fas fa-volume-down mini-buttons" id="mini-lowvolume"></i>
                 <i v-else-if="!isMuted && volume < 1" class="fas fa-volume-off mini-buttons" id="mini-novolume"></i>
                 <i v-else class="fas fa-volume-mute mini-buttons" id="mini-mutedvolume"></i>
@@ -55,7 +55,7 @@ export default {
       return {
         isLoaded: false,
         isMuted: false,
-        volume: 0
+        volume: 50
       }
   },
 
@@ -135,10 +135,11 @@ export default {
 button {
     background: #38a3a500;
     border: none;
+    border-radius: 28px;
 }
 
 button:hover{
-    background: #38a3a5;
+    background-color: #38a3a5;
 }
 .miniplayer-volume { 
     grid-area: 1 / 3 / 2 / 4; 
@@ -154,6 +155,11 @@ button:hover{
 .mini-buttons{
     font-size: 4.5vh;
     padding: 0.3vw;
+}
+
+.mini-buttons:active{
+    zoom: 1.1;
+    background-color: #3ed9db;
 }
 
 #mini-previousbutton, #mini-nextbutton, #mini-maxvolume, #mini-lowvolume, #mini-novolume, #mini-mutedvolume{
