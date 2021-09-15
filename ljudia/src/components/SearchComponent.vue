@@ -46,8 +46,6 @@ export default {
         this.$store.dispatch('search', this.searchString)
         }
     },
-    
-    
 }
 
 </script>

@@ -4,8 +4,8 @@
         
         <div class="miniplayer-metadata"> 
             <strong>Now playing</strong>
-            <p>Never Gonna Give You Up</p>
-            <p>Rick Astley</p>
+            <p>SONG TITLE</p>
+            <p>ARTIST NAME</p>
         </div>
 
         <div class="miniplayer-buttons"> 
@@ -29,18 +29,13 @@
 
         <div class="miniplayer-volume"> 
             <button @click="toggleMute()">
-                <i class="fas fa-volume-up mini-buttons" id="mini-maxvolume"></i>
+                <i v-if="!isMuted && volume >= 50" class="fas fa-volume-up mini-buttons" id="mini-maxvolume"></i>
+                <i v-else-if="!isMuted && volume >= 1" class="fas fa-volume-down mini-buttons" id="mini-lowvolume"></i>
+                <i v-else-if="!isMuted && volume < 1" class="fas fa-volume-off mini-buttons" id="mini-novolume"></i>
+                <i v-else class="fas fa-volume-mute mini-buttons" id="mini-mutedvolume"></i>
             </button>
 
-            <button>
-                <i class="fas fa-volume-down mini-buttons" id="mini-lowvolume">less than 50%</i>
-            </button>
-
-            <button>
-                <i class="fas fa-volume-mute mini-buttons" id="mini-mutedvolume"></i>
-            </button>
-
-            <input @change="setVolume()" type="range" min="1" max="100" value="50" class="slider" id="volumeSlider">
+            <input @change="setVolume()" type="range" min="0" max="100" value="50" class="slider" id="volumeSlider">
         </div>
 
         <div class="miniplayer-expander"> 
@@ -54,32 +49,46 @@
     
 </template>
 
-
-
 <script>
 export default {
+  data(){
+      return {
+        isLoaded: false,
+        isMuted: false,
+        volume: 0
+      }
+  },
+
   methods:{
+    
     play(id){
-      // calling global variable
-      window.player.loadVideoById(id);
-      window.player.setVolume(document.getElementById('volumeSlider').value);
-      window.player.playVideo();
+      if(!this.isLoaded){
+            window.player.loadVideoById(id);
+            window.player.playVideo();
+            this.isLoaded = true;
+      } else {
+            window.player.playVideo();
+      }
+            window.player.setVolume(document.getElementById('volumeSlider').value);
     },
+
     pause(){
       window.player.pauseVideo();
-      
     },
+
     toggleMute(){
-        
             if(window.player.isMuted()){
+                this.isMuted = false
                 window.player.unMute();
             } else {
                 window.player.mute();
+                this.isMuted = true
             }
     },
+    
     setVolume(){
-        let volume = document.getElementById('volumeSlider').value;
-        window.player.setVolume(volume);
+        this.volume = document.getElementById('volumeSlider').value;
+        window.player.setVolume(this.volume);
     }
     // getCurrentTime(){
     //     window.player.getCurrentTime()
@@ -147,15 +156,11 @@ button:hover{
     padding: 0.3vw;
 }
 
-#mini-previousbutton, #mini-nextbutton, #mini-maxvolume, #mini-lowvolume, #mini-mutedvolume{
+#mini-previousbutton, #mini-nextbutton, #mini-maxvolume, #mini-lowvolume, #mini-novolume, #mini-mutedvolume{
     color: #22577a;
 }
 #mini-playbutton, #mini-pausebutton, #mini-expandbutton{
     color: #57cc99;
-}
-
-#mini-lowvolume, #mini-mutedvolume{
-    display: none;
 }
 
 </style>
