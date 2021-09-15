@@ -4,7 +4,8 @@ export default createStore({
   state: {
     searchString: '',
 
-    searchResults: {}
+    search: {}
+
   },
 
   mutations: {
@@ -13,8 +14,8 @@ export default createStore({
       state.searchString = data
     },
     
-    setSearchResults(state, data) {
-      state.searchResults = data
+    setSearch(state, data) {
+      state.search = data
     }
 
   },
@@ -25,7 +26,7 @@ export default createStore({
       let data = await response.json()
       console.log(data)
       commit('setSearchString', searchString)
-      commit('setSearchResults', data)
+      commit('setSearch', data)
     }
   },
   modules: {
