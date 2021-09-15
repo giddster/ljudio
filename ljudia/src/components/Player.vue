@@ -105,9 +105,7 @@ export default {
     align-items: center;
     grid-template-columns: 1fr 2fr 0.5fr 0.5fr;
     grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    background: #38a3a5c9;
+    background: #38a3a5e5;
     position: absolute;
     left: 0;
     right: 0;
@@ -124,8 +122,9 @@ export default {
 
 .miniplayer-metadata { 
     grid-area: 1 / 1 / 2 / 2;
-    margin-left: 1vw;
     font-family: 'IBM Plex Sans Arabic', sans-serif;
+    justify-self: flex-start;
+    margin-left: 1vw;
     color: #22577a;
 }
 .miniplayer-buttons { 
@@ -143,7 +142,7 @@ button:hover{
 }
 .miniplayer-volume { 
     grid-area: 1 / 3 / 2 / 4; 
-
+    justify-self: flex-start;
 }
 .miniplayer-expander { 
     grid-area: 1 / 4 / 2 / 5; 
