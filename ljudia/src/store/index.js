@@ -2,22 +2,30 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    music: {
-      content: []
-    }
+    searchString: '',
+
+    searchResults: {}
   },
+
   mutations: {
-    setMusic(state, data) {
-      state.music = data
+    
+    setSearchString(state, data) {
+      state.searchString = data
+    },
+    
+    setSearchResults(state, data) {
+      state.searchResults = data
     }
 
   },
+
   actions: {
-    async fetchMusic({ commit }) {
-      let response = await fetch('https://yt-music-api.herokuapp.com/api/yt/songs/bohemian%20rapsody')
+    async search({ commit }, searchString) {
+      let response = await fetch(`https://yt-music-api.herokuapp.com/api/yt/search/:${searchString}`)
       let data = await response.json()
       console.log(data)
-      commit('setMusic', data)
+      commit('setSearchString', searchString)
+      commit('setSearchResults', data)
     }
   },
   modules: {

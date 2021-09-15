@@ -7,7 +7,7 @@
     
 </template>
 
-<style>
+<style scoped>
 
 .searchbar{
     width: 70%;

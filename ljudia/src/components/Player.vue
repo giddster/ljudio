@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     
     <div class="miniplayer-parent">
         
@@ -12,29 +12,35 @@
             <button>
                 <i class="fas fa-step-backward mini-buttons" id="mini-previousbutton"></i>
             </button>
-            <button>
+
+            <button @click="play('DXxeOvvNNwc')">
                 <i class="fas fa-play mini-buttons" id="mini-playbutton"></i>
             </button>
-            <button>
+
+            <button @click="pause()">
                 <i class="fas fa-pause mini-buttons" id="mini-pausebutton"></i>
             </button>
+
             <button>
                 <i class="fas fa-step-forward mini-buttons" id="mini-nextbutton"></i>
             </button>
+
         </div>
 
         <div class="miniplayer-volume"> 
-            <button>
+            <button @click="toggleMute()">
                 <i class="fas fa-volume-up mini-buttons" id="mini-maxvolume"></i>
             </button>
+
             <button>
                 <i class="fas fa-volume-down mini-buttons" id="mini-lowvolume">less than 50%</i>
             </button>
+
             <button>
                 <i class="fas fa-volume-mute mini-buttons" id="mini-mutedvolume"></i>
             </button>
 
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <input @change="setVolume()" type="range" min="1" max="100" value="50" class="slider" id="volumeSlider">
         </div>
 
         <div class="miniplayer-expander"> 
@@ -46,27 +52,38 @@
 
     </div>
     
-</template> -->
-
-<template>
-  <div>
-    <button @click="play('DXxeOvvNNwc')">The Black Page #1 on piano</button>
-    <button @click="play('CtkZxnkbjtI')">The Black Page #2 live band</button>
-    <button @click="pause()">Pause</button>
-  </div>
 </template>
+
+
 
 <script>
 export default {
   methods:{
     play(id){
       // calling global variable
-      window.player.loadVideoById(id)
-      window.player.playVideo()
+      window.player.loadVideoById(id);
+      window.player.setVolume(document.getElementById('volumeSlider').value);
+      window.player.playVideo();
     },
     pause(){
-      window.player.pauseVideo()
+      window.player.pauseVideo();
+      
+    },
+    toggleMute(){
+        
+            if(window.player.isMuted()){
+                window.player.unMute();
+            } else {
+                window.player.mute();
+            }
+    },
+    setVolume(){
+        let volume = document.getElementById('volumeSlider').value;
+        window.player.setVolume(volume);
     }
+    // getCurrentTime(){
+    //     window.player.getCurrentTime()
+    // }
   }
 }
 </script>
