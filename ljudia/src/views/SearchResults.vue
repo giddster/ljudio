@@ -25,7 +25,7 @@ export default {
             return this.$store.state.searchString
         },
         searchResults() {
-            return this.$store.state.search.content
+            return this.$store.state.search
         }
     },
 }

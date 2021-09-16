@@ -4,7 +4,7 @@ export default createStore({
   state: {
     searchString: '',
 
-    search: {}
+    search: []
 
   },
 
@@ -15,7 +15,7 @@ export default createStore({
     },
     
     setSearch(state, data) {
-      state.search = data
+      state.search = data.content
     }
 
   },

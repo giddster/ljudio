@@ -1,9 +1,9 @@
 <template>
     
-    <form>
-        <input type="text" class="searchbar" placeholder="Search for music.." v-model="searchString" required>
-        <router-link @click="search()" :to="'/search'" class="search-btn" tag="button"> <i class="fas fa-search"> </i> </router-link>
-    </form>
+    <div>
+        <input @keyup.enter="search(searchString)" type="text" class="searchbar" placeholder="Search for music.." v-model="searchString" required>
+        <button @click="search(searchString)" class="search-btn"> <i class="fas fa-search"> </i> </button>
+    </div>
     
 </template>
 
@@ -41,10 +41,15 @@
 <script>
 
 export default {
+    
     methods: {
-        search() {
-        this.$store.dispatch('search', this.searchString)
-        }
+        search(searchString) {
+                this.$store.dispatch('search', searchString)
+                .then( () => {
+                    this.$router.push('/search')
+                })
+            }
+        
     },
 }
 
