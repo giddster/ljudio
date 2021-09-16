@@ -2,7 +2,7 @@
     <h1 class="results-heading"> Your results for "{{ searchString }}"</h1>
     <!-- <h1 v-else> Sorry, we couldn't find results for "{{ searchString }}"</h1> -->
     
-    <div v-for="result in searchResults" :key="result.videoId">
+    <div v-for="result in searchResults" :key="result">
             <div v-if="result.type == 'song' || result.type == 'album'" class="single-result">
                 <p>Title: {{result.name}}</p> 
                 <p>Artist: {{result.artist.name}}</p>
