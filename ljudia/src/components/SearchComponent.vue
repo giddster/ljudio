@@ -1,7 +1,7 @@
 <template>
     
     <div>
-        <input @keyup.enter="search(searchString)" type="text" class="searchbar" placeholder="Search for music.." v-model="searchString" required>
+        <input @keyup.enter="search(searchString)" type="text" class="searchbar" placeholder="Search for music.." v-model="searchString" ref="searchboxValue">
         <button @click="search(searchString)" class="search-btn"> <i class="fas fa-search"> </i> </button>
     </div>
     
@@ -46,8 +46,9 @@ export default {
         search(searchString) {
                 this.$store.dispatch('search', searchString)
                 .then( () => {
-                    this.$router.push('/search')
+                    this.$router.push(`/search/${searchString}`)
                 })
+                .then(this.$refs["searchboxValue"].value = '')
             }
         
     },

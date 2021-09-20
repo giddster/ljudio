@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="result-buttons">
-                        <button id="result-playbutton" @click="loadSongToPlayer(result)"> <i class="fas fa-play mini-buttons" id="mini-playbutton"></i> Play song </button>
+                        <button id="result-playbutton" @click="loadSongToPlayer(result)"> <i class="fas fa-play mini-buttons" id="mini-playbutton"></i> Play </button>
                         <button id="result-queuebutton"> <i class="fas fa-plus"></i> Add to queue </button>
                     </div>
                 </div>

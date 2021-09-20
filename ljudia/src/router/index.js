@@ -27,7 +27,7 @@ const routes = [
     component: FAQ
   },
   {
-    path: '/search',
+    path: '/search/:searchString',
     name: 'SearchResults',
     component: SearchResults
   },
