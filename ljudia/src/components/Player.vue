@@ -3,9 +3,7 @@
     <div class="miniplayer-parent">
         
         <div class="miniplayer-metadata"> 
-            <strong>Now playing</strong>
-            <p>{{loadedSong.name}}</p>
-            <p>{{loadedSong.artist.name}}</p>
+            <strong>Now playing <em>{{loadedSong.name}}</em> by {{loadedSong.artist.name}}</strong>
         </div>
 
         <div class="miniplayer-buttons"> 
@@ -13,12 +11,9 @@
                 <i class="fas fa-step-backward mini-buttons" id="mini-previousbutton"></i>
             </button>
 
-            <button >
-                <i @click="play(loadedSong.videoId)" class="fas fa-play mini-buttons" id="mini-playbutton"></i>
-            </button>
-
-            <button >
-                <i @click="pause()" class="fas fa-pause mini-buttons" id="mini-pausebutton"></i>
+            <button>
+                <i v-if="!isPlaying" @click="play(loadedSong.videoId)" class="fas fa-play mini-buttons" id="mini-playbutton"></i>
+                <i v-else @click="pause()" class="fas fa-pause mini-buttons" id="mini-pausebutton"></i>
             </button>
 
             <button>
@@ -60,7 +55,8 @@ export default {
       return {
         isLoaded: false,
         isMuted: false,
-        volume: 50
+        volume: 50,
+        isPlaying: false
       }
   },
 
@@ -75,19 +71,21 @@ export default {
             window.player.playVideo();
       }
             window.player.setVolume(document.getElementById('volumeSlider').value);
+            this.isPlaying = true;
     },
 
     pause(){
       window.player.pauseVideo();
+      this.isPlaying = false;
     },
 
     toggleMute(){
             if(window.player.isMuted()){
-                this.isMuted = false
+                this.isMuted = false;
                 window.player.unMute();
             } else {
                 window.player.mute();
-                this.isMuted = true
+                this.isMuted = true;
             }
     },
     

@@ -6,7 +6,10 @@ export default createStore({
 
     search: [],
 
-    loadedSong: {}
+    loadedSong: {
+      name: '',
+      artist: {name: ''}
+    }
 
   },
 
