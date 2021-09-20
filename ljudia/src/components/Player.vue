@@ -64,15 +64,17 @@ export default {
   methods:{
     
     play(id){
-      if(!this.isLoaded){
-            window.player.loadVideoById(id);
-            window.player.playVideo();
-            this.isLoaded = true;
-      } else {
-            window.player.playVideo();
+        if(id){
+          if(!this.isLoaded){
+                window.player.loadVideoById(id);
+                window.player.playVideo();
+                this.isLoaded = true;
+          } else {
+                window.player.playVideo();
+          }
+                window.player.setVolume(this.volume);
+                this.isPlaying = true;
       }
-            window.player.setVolume(document.getElementById('volumeSlider').value);
-            this.isPlaying = true;
     },
 
     pause(){
