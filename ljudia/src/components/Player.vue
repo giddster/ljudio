@@ -4,8 +4,8 @@
         
         <div class="miniplayer-metadata"> 
             <strong>Now playing</strong>
-            <p>SONG TITLE</p>
-            <p>ARTIST NAME</p>
+            <p>{{loadedSong.name}}</p>
+            <p>{{loadedSong.artist.name}}</p>
         </div>
 
         <div class="miniplayer-buttons"> 
@@ -14,7 +14,7 @@
             </button>
 
             <button >
-                <i @click="play('lYBUbBu4W08')" class="fas fa-play mini-buttons" id="mini-playbutton"></i>
+                <i @click="play(loadedSong.videoId)" class="fas fa-play mini-buttons" id="mini-playbutton"></i>
             </button>
 
             <button >
@@ -51,6 +51,11 @@
 
 <script>
 export default {
+  computed: {
+      loadedSong() {
+          return this.$store.state.loadedSong
+      }
+  },
   data(){
       return {
         isLoaded: false,

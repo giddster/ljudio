@@ -9,7 +9,7 @@
                 <p>Album: {{result.album.name}}</p>
                 <p>Type: {{result.type}}</p>
 
-                <button> <i class="fas fa-play mini-buttons" id="mini-playbutton"></i> </button>
+                <button @click="loadSongToPlayer(result)"> <i class="fas fa-play mini-buttons" id="mini-playbutton"></i> </button>
                 <button> <i class="fas fa-bars"></i> </button>
                 
             </div>
@@ -28,6 +28,11 @@ export default {
             return this.$store.state.search
         }
     },
+    methods: {
+        loadSongToPlayer(result){
+            this.$store.state.loadedSong = result
+        }
+    }
 }
 
 

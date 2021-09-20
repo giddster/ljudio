@@ -4,7 +4,9 @@ export default createStore({
   state: {
     searchString: '',
 
-    search: []
+    search: [],
+
+    loadedSong: {}
 
   },
 
