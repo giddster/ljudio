@@ -3,7 +3,7 @@
         <div class="queue-button" @click="showQueue()">
             <i class="fas fa-bars"></i>
             <strong class="queue-header">
-                 Your Queue<sup style="color:red;">1</sup>
+                 My Queue<sup style="color:red;">1</sup>
             </strong>
         </div>
 
@@ -41,7 +41,7 @@
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    width: 100%;
+    width: 18vw;
     z-index: 1;
     font-size: 2vh;
 }
