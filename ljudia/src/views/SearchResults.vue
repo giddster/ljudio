@@ -3,7 +3,8 @@
         <h1 class="results-heading"> Your results for "{{ searchString }}"</h1>
         
         <div class="sort-buttons">
-            <p>Filter results by </p>
+            
+            <p>Show results: </p>
             <button>All</button>
             <button>Songs</button>
             <button>Artists</button>
@@ -122,7 +123,6 @@ export default {
 }
 
 .result-buttons button:active{
-    zoom: 1.1;
     background-color: #3ed9db;
 }
 

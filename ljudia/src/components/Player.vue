@@ -161,7 +161,6 @@ button:hover{
 }
 
 .mini-buttons:active{
-    zoom: 1.1;
     background-color: #3ed9db;
 }
 
