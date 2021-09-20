@@ -3,7 +3,9 @@
     <div class="miniplayer-parent">
         
         <div class="miniplayer-metadata"> 
-            <strong>Now playing <em>{{loadedSong.name}}</em> by {{loadedSong.artist.name}}</strong>
+            <strong>Now playing: </strong>
+            <p>{{loadedSong.name}}</p>
+            <p>{{loadedSong.artist.name}}</p>
         </div>
 
         <div class="miniplayer-buttons"> 
