@@ -13,9 +13,15 @@
                 </div>
                 
                 <div class="queue-buttons">
-                    <i class="fas fa-chevron-up"></i>
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-trash-alt"></i>
+                    <button>
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <button>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button>
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                 </div>
                 
         </div>
@@ -35,18 +41,33 @@
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    width: 20vw;
+    width: 100%;
     z-index: 1;
     font-size: 2vh;
 }
 
 .queue-metadata{
-    width: 70%;
-    font-size: 2vh;
+    width: 60%;
+    font-size: 1.5vh;
 }
 
 .queue-buttons{
-    width: 20%;
+    width: 40%;
+    align-self: center;
+}
+
+.queue-buttons button{
+    color: #22577a;
+    background: #38a3a500;
+    border: none;
+}
+
+.queue-buttons button:hover{
+    background-color: #38a3a5;
+}
+
+.queue-buttons button:active{
+    background-color: #3ed9db;
 }
 
 .queue-button{

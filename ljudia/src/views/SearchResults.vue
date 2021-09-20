@@ -92,7 +92,7 @@ export default {
 .single-result{
     margin: 0 auto;
     padding: 1vh 1vw;
-    width: 80%;
+    width: 75%;
     display: flex;
     font-family: 'IBM Plex Sans Arabic', sans-serif;
     justify-content: center;
