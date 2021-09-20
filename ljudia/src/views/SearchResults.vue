@@ -15,7 +15,7 @@
                 <div v-if="result.type == 'song'" class="single-result">
                     <div class="result-metadata">
                         <img :src="result.thumbnails[1].url" alt="">
-                        <p> Title: {{result.name}}</p> 
+                        <p> Title: "{{result.name}}"</p> 
                         <p>Artist: {{result.artist.name}}</p>
                         <p>Album: {{result.album.name}}</p>
                     </div>

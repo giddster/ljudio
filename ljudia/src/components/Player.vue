@@ -4,7 +4,7 @@
         
         <div class="miniplayer-metadata"> 
             <strong v-if="isLoaded && isPlaying">Now playing: {{loadedSong.name}} by {{loadedSong.artist.name}}</strong>
-            <strong v-else-if="isLoaded && !isPlaying">Paused</strong>
+            <strong v-else-if="isLoaded && !isPlaying">Paused: {{loadedSong.name}} by {{loadedSong.artist.name}}</strong>
             <strong v-else>No music queued</strong>
         </div>
 
