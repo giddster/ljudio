@@ -9,7 +9,9 @@ export default createStore({
     loadedSong: {
       name: '',
       artist: {name: ''}
-    }
+    },
+
+    queue: [ {} ]
 
   },
 
