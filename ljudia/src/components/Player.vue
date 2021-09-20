@@ -3,9 +3,8 @@
     <div class="miniplayer-parent">
         
         <div class="miniplayer-metadata"> 
-            <strong>Now playing: </strong>
-            <p>{{loadedSong.name}}</p>
-            <p>{{loadedSong.artist.name}}</p>
+            <strong v-if="isPlaying">Now playing: {{loadedSong.name}} by {{loadedSong.artist.name}}</strong>
+            <strong v-else>Paused</strong>
         </div>
 
         <div class="miniplayer-buttons"> 
