@@ -2,13 +2,12 @@
     <div v-if="searchResults.length" class="results-container">
         <h1 class="results-heading"> Your results for "{{ searchString }}"</h1>
         
-        <div class="sort-buttons">
+        <!-- <div class="sort-buttons">
             
-            <p>Show results: </p>
-            <button>All</button>
+            <p> Show results: </p>
             <button>Songs</button>
             <button>Artists</button>
-        </div>
+        </div> -->
 
         <div class="all-results" v-for="result in searchResults" :key="result">
 

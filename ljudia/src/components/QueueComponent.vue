@@ -3,7 +3,7 @@
         <div class="queue-button" @click="showQueue()">
             <i class="fas fa-bars"></i>
             <strong class="queue-header">
-                 My Queue<sup id="queue-sup">{{myQueue.length}}</sup>
+                 My Queue<sup v-if="myQueue.length" id="queue-sup">{{myQueue.length}}</sup>
             </strong>
         </div>
 
