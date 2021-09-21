@@ -21,7 +21,7 @@
                         <button>
                             <i class="fas fa-chevron-down"></i>
                         </button>
-                        <button>
+                        <button @click="removeFromQueue(result)">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
@@ -47,7 +47,7 @@
     flex-direction: column;
     position: absolute;
     background-color: #f1f1f1;
-    width: calc(100px + 16.8vw);
+    width: calc(82px + 16.8vw);
     font-size: 2vh;
     z-index: 1;
 }
@@ -60,6 +60,7 @@
 
 .queue-metadata{
     display: flex;
+    margin-left: 5px;
     flex-grow: 1;
     font-size: 1.5vh;
 }
@@ -109,6 +110,9 @@ export default {
     methods: {
         showQueue(){
             document.getElementById('queueDropdown').classList.toggle("show");
+        },
+        removeFromQueue(result){
+            this.$store.dispatch('removeFromQueue', result)
         }
     }
 }

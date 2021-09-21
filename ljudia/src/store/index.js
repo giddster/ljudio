@@ -28,6 +28,10 @@ export default createStore({
 
     addQueueItem(state, data) {
       state.queue.push(data)
+    },
+
+    removeQueueItem(state, data) {
+      state.queue.pop(data)
     }
 
   },
@@ -47,6 +51,10 @@ export default createStore({
 
     addToQueue({ commit }, data) {
       commit('addQueueItem', data)
+    },
+
+    removeFromQueue({ commit }, data) {
+      commit('removeQueueItem', data)
     }
   },
 
