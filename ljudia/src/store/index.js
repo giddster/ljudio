@@ -6,12 +6,9 @@ export default createStore({
 
     search: [],
 
-    loadedSong: {
-      name: '',
-      artist: {name: ''}
-    },
+    loadedSong: {},
 
-    queue: [ {} ]
+    queue: []
 
   },
 
@@ -23,6 +20,10 @@ export default createStore({
     
     setSearch(state, data) {
       state.search = data.content
+    },
+
+    setLoadedSong(state, data) {
+      state.loadedSong = data
     }
 
   },
@@ -34,8 +35,14 @@ export default createStore({
       console.log(data)
       commit('setSearchString', searchString)
       commit('setSearch', data)
+    },
+    
+    populateLoadedSong({ commit }, data) {
+      commit('setLoadedSong', data)
+      console.log(data)
     }
   },
+
   modules: {
 
   }

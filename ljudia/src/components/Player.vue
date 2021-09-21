@@ -50,9 +50,10 @@
 export default {
   computed: {
       loadedSong() {
-          return this.$store.state.loadedSong
+          return this.$store.state.loadedSong;
       }
   },
+
   data(){
       return {
         isLoaded: false,
@@ -67,7 +68,7 @@ export default {
     play(id){
         if(id){
           if(!this.isLoaded){
-                window.player.loadVideoById(id);
+                window.player.loadVideoById(this.$store.state.loadedSong.videoId);
                 window.player.playVideo();
                 this.isLoaded = true;
           } else {

@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         loadSongToPlayer(result){
-            this.$store.state.loadedSong = result
+            this.$store.dispatch('populateLoadedSong', result)
         }
     }
 }
