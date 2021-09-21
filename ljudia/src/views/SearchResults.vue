@@ -10,19 +10,26 @@
                 </select>
         </div>
 
-    <div v-if="searchResults.length" class="results-container">
-        <div id="songs">
-            songs
+    <div v-for="(result, index) in searchResults" :key="index" class="results-container">
+        
+        <div id="songs" v-if="result.type == 'song'">
+            <p>{{result.name}}</p>
+            <p>{{ result.type }}</p> 
+            <p>{{ index }}</p> 
+            <p>{{ result.videoId }}</p> 
         </div>
         
-        <div id="artists">
-            artists
+        <div id="artists" v-else-if="result.type == 'artist'">
+            <p>{{result.name}}</p>
+            <p>{{ result.type }}</p> 
+            <p>{{ index }}</p> 
+            <p>{{ result.videoId }}</p> 
         </div>
     </div>
 
-    <div v-else class="no-results">
+    <!-- <div class="no-results">
             <h1> Sorry, we couldn't find any results for "{{ searchString }}"</h1>
-    </div>
+    </div> -->
 
 </template>
 
@@ -32,30 +39,30 @@ export default {
         searchString() {
             return this.$store.state.searchString
         },
-        searchResults() {
-            return this.$store.state.search
+        songResults() {
+            return this.$store.state.search.filter()
         }
     },
     methods: {
         sortResults(){
             let selectValue = document.getElementById('sortselector').value;
-            let songResultsDiv = document.getElementById('songs');
-            let artistResultsDiv = document.getElementById('artists');
+            let songs = document.getElementById('songs');
+            let artists = document.getElementById('artists');
 
             if(selectValue === 'all'){
                 console.log('show all');
-                songResultsDiv.style.display = 'flex'
-                artistResultsDiv.style.display = 'flex'
+                songs.style.display = 'flex'
+                artists.style.display = 'flex'
             }
             else if(selectValue === 'songs'){
                 console.log('show songs');
-                songResultsDiv.style.display = 'flex'
-                artistResultsDiv.style.display = 'none'
+                songs.style.display = 'flex'
+                artists.style.display = 'none'
             }
             else{
                 console.log('show artists');
-                artistResultsDiv.style.display = 'flex'
-                songResultsDiv.style.display = 'none'
+                artists.style.display = 'flex'
+                songs.style.display = 'none'
             }
         },
         loadSongToPlayer(result){
@@ -90,6 +97,9 @@ p, .sort-select{
     font-size: 1.8vh;
 }
 
+#songs, #artists{
+    display: none;
+}
 
 .sort-select{
     text-align: center;
