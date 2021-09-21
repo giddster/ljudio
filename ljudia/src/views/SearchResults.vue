@@ -1,9 +1,8 @@
 <template>
-    <div v-if="searchResults.length" class="results-container">
         <h1 class="results-heading"> Your results for "{{ searchString }}"</h1>
 
         <div class="sort-select">
-            <label for="sortselector">Show results for </label>
+            <label for="sortselector">Results </label>
                 <select @change="sortResults()" name="sortselector" id="sortselector">
                     <option value="all" selected="selected">All</option>
                     <option value="songs">Songs</option>
@@ -11,39 +10,20 @@
                 </select>
         </div>
 
-        <div v-for="result in searchResults" :key="result" id="songs">
-                <div v-if="result.type == 'song'" class="single-result">
-                    <div class="result-metadata">
-                        <img :src="result.thumbnails[1].url" alt="">
-                        <p> Title: "{{result.name}}"</p> 
-                        <p>Artist: {{result.artist.name}}</p>
-                        <p>Album: {{result.album.name}}</p>
-                    </div>
-
-                    <div class="result-buttons">
-                        <button id="result-playbutton" @click="loadSongToPlayer(result)"> <i class="fas fa-play mini-buttons" id="mini-playbutton"></i> Play </button>
-                        <button id="result-queuebutton" @click="addToQueue(result)"> <i class="fas fa-plus"></i> Add to queue </button>
-                    </div>
-                </div>
+    <div v-if="searchResults.length" class="results-container">
+        <div id="songs">
+            songs
         </div>
-
-        <div v-for="result in searchResults" :key="result" id="artists">
-                <div v-if="result.type == 'artist'" class="single-result">
-                    <div class="result-metadata">
-                        <img :src="result.thumbnails[1].url" alt="">
-                        <p>{{result.name}}</p> 
-                    </div>
-
-                    <div class="result-buttons">
-                        <button id="result-playbutton"> <i class="fas fa-id-badge"></i> Visit artist profile </button>
-                    </div>
-                </div>
+        
+        <div id="artists">
+            artists
         </div>
     </div>
 
     <div v-else class="no-results">
             <h1> Sorry, we couldn't find any results for "{{ searchString }}"</h1>
     </div>
+
 </template>
 
 <script>
@@ -64,14 +44,18 @@ export default {
 
             if(selectValue === 'all'){
                 console.log('show all');
-                songResultsDiv.classList.toggle('show');
-            } 
+                songResultsDiv.style.display = 'flex'
+                artistResultsDiv.style.display = 'flex'
+            }
             else if(selectValue === 'songs'){
                 console.log('show songs');
-                artistResultsDiv.classList.toggle('show');
+                songResultsDiv.style.display = 'flex'
+                artistResultsDiv.style.display = 'none'
             }
             else{
                 console.log('show artists');
+                artistResultsDiv.style.display = 'flex'
+                songResultsDiv.style.display = 'none'
             }
         },
         loadSongToPlayer(result){
@@ -106,6 +90,7 @@ p, .sort-select{
     font-size: 1.8vh;
 }
 
+
 .sort-select{
     text-align: center;
 }
@@ -114,45 +99,5 @@ p, .sort-select{
     display: flex;
 }
 
-.single-result{
-    width: 75%;
-    margin: 0 auto;
-    padding: 1vh 1vw;
-    display: flex;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid #22577a;
-}
-
-
-.result-metadata{
-    width: 50%;
-}
-
-.result-buttons{
-    width: 50%;
-    text-align: center;
-}
-
-.result-buttons button{
-    font-size: 3vh;
-    padding: 0 1vw;
-    background: #38a3a500;
-    border: none;
-    cursor: pointer;
-}
-
-.result-buttons button:active{
-    background-color: #3ed9db;
-}
-
-#result-playbutton{
-    color: #57cc99;
-}
-
-#result-queuebutton{
-    color: #22577a;
-}
 
 </style>
