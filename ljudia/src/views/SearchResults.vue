@@ -1,15 +1,16 @@
 <template>
     <div v-if="searchResults.length" class="results-container">
         <h1 class="results-heading"> Your results for "{{ searchString }}"</h1>
-        
-        <!-- <div class="sort-buttons">
-            
-            <p> Show results: </p>
-            <button>Songs</button>
-            <button>Artists</button>
-        </div> -->
 
-        <div class="all-results" v-for="result in searchResults" :key="result">
+        <div class="sort-select">
+            <label for="sortselector">Show results for </label>
+                <select @change="sortResults()" name="sortselector" id="sortselector">
+                    <option value="songs" selected="selected">Songs</option>
+                    <option value="artists">Artists</option>
+                </select>
+        </div>
+
+        <div v-for="result in searchResults" :key="result" id="songs">
 
                 <div v-if="result.type == 'song'" class="single-result">
                     <div class="result-metadata">
@@ -24,8 +25,12 @@
                         <button id="result-queuebutton" @click="addToQueue(result)"> <i class="fas fa-plus"></i> Add to queue </button>
                     </div>
                 </div>
+                
+        </div>
 
-                <div v-else-if="result.type == 'artist'" class="single-result">
+        <div v-for="result in searchResults" :key="result" id="artists">
+
+                <div v-if="result.type == 'artist'" class="single-result">
                     <div class="result-metadata">
                         <img :src="result.thumbnails[1].url" alt="">
                         <p>{{result.name}}</p> 
@@ -55,6 +60,20 @@ export default {
         }
     },
     methods: {
+        sortResults(){
+            let selectValue = document.getElementById('sortselector').value;
+            let songResultsDiv = document.getElementById('songs');
+            let artistResultsDiv = document.getElementById('artists');
+
+            if(selectValue === 'songs'){
+                console.log('show songs');
+                songResultsDiv.classList.toggle('show');
+            } 
+            else if(selectValue === 'artists'){
+                console.log('show artists')
+                artistResultsDiv.classList.toggle('show');
+            }
+        },
         loadSongToPlayer(result){
             this.$store.dispatch('populateLoadedSong', result)
         },
@@ -70,8 +89,8 @@ export default {
 <style scoped>
 .results-container{
     background: #acf1d4b7;
-    padding: 0.5vh 0;
-    min-height: fit-content;
+    padding: 1vh 1vw;
+    outline: 1px solid black;
 }
 
 .results-heading{
@@ -80,14 +99,17 @@ export default {
     font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
 
-.sort-buttons{
+.sort-select{
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    font-size: 2vh;
+    color: #22577a;
 }
 
-.all-results{
-    margin: 0 auto;
-    padding: 0.5vh 1vw;
+.show{
+    display: flex;
 }
 
 .single-result{
