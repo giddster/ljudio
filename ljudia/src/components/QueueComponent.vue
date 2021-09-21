@@ -3,26 +3,30 @@
         <div class="queue-button" @click="showQueue()">
             <i class="fas fa-bars"></i>
             <strong class="queue-header">
-                 My Queue<sup style="color:red;">1</sup>
+                 My Queue<sup style="color:red;">{{myQueue.length}}</sup>
             </strong>
         </div>
 
         <div id="queueDropdown" class="dropdown-content">
-                <div class="queue-metadata">
-                    <p><em> Sandstorm </em> by Darude</p>
+                <div v-for="item in myQueue" :key="item" class="content-wrapper">
+                    <div class="queue-metadata">
+                        <p><em> {{ item.name }} </em> </p>
+                        <p>{{ item.artist.name }}</p>
+                    </div>
+                    
+                    <div class="queue-buttons">
+                        <button>
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                        <button>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <button>
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
                 </div>
                 
-                <div class="queue-buttons">
-                    <button>
-                        <i class="fas fa-chevron-up"></i>
-                    </button>
-                    <button>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <button>
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
                 
         </div>
     </div>
@@ -41,18 +45,21 @@
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    width: 18vw;
+    width: 20vw;
     z-index: 1;
     font-size: 2vh;
 }
 
+.content-wrapper{
+    display: flex;
+}
+
 .queue-metadata{
-    width: 60%;
     font-size: 1.5vh;
+    align-self: center;
 }
 
 .queue-buttons{
-    width: 40%;
     align-self: center;
 }
 
@@ -85,7 +92,7 @@
 <script>
 export default {
     computed: {
-        MyQueue(){
+        myQueue(){
             return this.$store.state.queue;
         }
     },

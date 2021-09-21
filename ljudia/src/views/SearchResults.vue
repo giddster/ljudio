@@ -22,7 +22,7 @@
 
                     <div class="result-buttons">
                         <button id="result-playbutton" @click="loadSongToPlayer(result)"> <i class="fas fa-play mini-buttons" id="mini-playbutton"></i> Play </button>
-                        <button id="result-queuebutton"> <i class="fas fa-plus"></i> Add to queue </button>
+                        <button id="result-queuebutton" @click="addToQueue(result)"> <i class="fas fa-plus"></i> Add to queue </button>
                     </div>
                 </div>
 
@@ -59,6 +59,9 @@ export default {
     methods: {
         loadSongToPlayer(result){
             this.$store.dispatch('populateLoadedSong', result)
+        },
+        addToQueue(result){
+            this.$store.dispatch('addToQueue', result)
         }
     }
 }
