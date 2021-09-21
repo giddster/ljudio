@@ -90,7 +90,6 @@ export default {
 .results-container{
     background: #acf1d4b7;
     padding: 1vh 1vw;
-    outline: 1px solid black;
 }
 
 .results-heading{
