@@ -27,7 +27,6 @@ font-family: 'Roboto', sans-serif; */
 body {
     margin: 0 0 10vh 0;
     background: #91daba;
-    height: 60vh;
     width: 100%;
 }
 

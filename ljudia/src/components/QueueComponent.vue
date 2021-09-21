@@ -3,14 +3,14 @@
         <div class="queue-button" @click="showQueue()">
             <i class="fas fa-bars"></i>
             <strong class="queue-header">
-                 My Queue<sup style="color:red;">{{myQueue.length}}</sup>
+                 My Queue<sup id="queue-sup">{{myQueue.length}}</sup>
             </strong>
         </div>
 
         <div id="queueDropdown" class="dropdown-content">
                 <div v-for="item in myQueue" :key="item" class="content-wrapper">
                     <div class="queue-metadata">
-                        <p><em> {{ item.name }} </em> </p>
+                        <p><em> {{ item.name }} </em> – </p>
                         <p>{{ item.artist.name }}</p>
                     </div>
                     
@@ -26,8 +26,6 @@
                         </button>
                     </div>
                 </div>
-                
-                
         </div>
     </div>
     
@@ -36,6 +34,9 @@
 
 <style scoped>
 
+#queue-sup{
+    color: red;
+}
 .dropdown{
     position: relative;
     display: inline-block;
@@ -43,30 +44,38 @@
 
 .dropdown-content{
     display: none;
+    flex-direction: column;
     position: absolute;
     background-color: #f1f1f1;
-    width: 20vw;
-    z-index: 1;
+    width: calc(100px + 16.8vw);
     font-size: 2vh;
+    z-index: 1;
 }
 
 .content-wrapper{
     display: flex;
+    width: 100%;
+    outline: 1px solid #22577a;
 }
 
 .queue-metadata{
+    display: flex;
+    flex-grow: 1;
     font-size: 1.5vh;
-    align-self: center;
 }
 
 .queue-buttons{
     align-self: center;
+    font-size: 1.5vh;
+    flex-shrink: 0;
+    margin-right: 10px;
 }
 
 .queue-buttons button{
     color: #22577a;
     background: #38a3a500;
     border: none;
+    cursor: pointer;
 }
 
 .queue-buttons button:hover{

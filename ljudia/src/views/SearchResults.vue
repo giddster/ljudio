@@ -48,7 +48,6 @@
 <script>
 export default {
     computed: {
-
         searchString() {
             return this.$store.state.searchString
         },
