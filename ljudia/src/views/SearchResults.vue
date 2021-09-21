@@ -2,15 +2,6 @@
     <div v-if="searchResults.length" class="results-container">
         <h1 class="results-heading"> Your results for "{{ searchString }}"</h1>
 
-        <div class="sort-select">
-            <label for="sortselector">Show results for </label>
-                <select @change="sortResults()" name="sortselector" id="sortselector">
-                    <option value="all" selected="selected">All</option>
-                    <option value="songs">Songs</option>
-                    <option value="artists">Artists</option>
-                </select>
-        </div>
-
         <div v-for="result in searchResults" :key="result" id="songs">
                 <div v-if="result.type == 'song'" class="single-result">
                     <div class="result-metadata">
@@ -57,23 +48,6 @@ export default {
         }
     },
     methods: {
-        sortResults(){
-            let selectValue = document.getElementById('sortselector').value;
-            let songResultsDiv = document.getElementById('songs');
-            let artistResultsDiv = document.getElementById('artists');
-
-            if(selectValue === 'all'){
-                console.log('show all');
-                songResultsDiv.classList.toggle('show');
-            } 
-            else if(selectValue === 'songs'){
-                console.log('show songs');
-                artistResultsDiv.classList.toggle('show');
-            }
-            else{
-                console.log('show artists');
-            }
-        },
         loadSongToPlayer(result){
             this.$store.dispatch('populateLoadedSong', result)
         },
