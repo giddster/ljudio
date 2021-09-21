@@ -113,7 +113,7 @@ export default {
         showQueue(){
             document.getElementById('queueDropdown').classList.toggle("show");
         },
-        
+
         removeFromQueue(item){
             this.$store.dispatch('removeFromQueue', item)
         }
