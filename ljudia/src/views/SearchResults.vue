@@ -5,13 +5,13 @@
         <div class="sort-select">
             <label for="sortselector">Show results for </label>
                 <select @change="sortResults()" name="sortselector" id="sortselector">
-                    <option value="songs" selected="selected">Songs</option>
+                    <option value="all" selected="selected">All</option>
+                    <option value="songs">Songs</option>
                     <option value="artists">Artists</option>
                 </select>
         </div>
 
         <div v-for="result in searchResults" :key="result" id="songs">
-
                 <div v-if="result.type == 'song'" class="single-result">
                     <div class="result-metadata">
                         <img :src="result.thumbnails[1].url" alt="">
@@ -25,11 +25,9 @@
                         <button id="result-queuebutton" @click="addToQueue(result)"> <i class="fas fa-plus"></i> Add to queue </button>
                     </div>
                 </div>
-                
         </div>
 
         <div v-for="result in searchResults" :key="result" id="artists">
-
                 <div v-if="result.type == 'artist'" class="single-result">
                     <div class="result-metadata">
                         <img :src="result.thumbnails[1].url" alt="">
@@ -39,7 +37,6 @@
                     <div class="result-buttons">
                         <button id="result-playbutton"> <i class="fas fa-id-badge"></i> Visit artist profile </button>
                     </div>
-                    
                 </div>
         </div>
     </div>
@@ -65,13 +62,16 @@ export default {
             let songResultsDiv = document.getElementById('songs');
             let artistResultsDiv = document.getElementById('artists');
 
-            if(selectValue === 'songs'){
-                console.log('show songs');
+            if(selectValue === 'all'){
+                console.log('show all');
                 songResultsDiv.classList.toggle('show');
             } 
-            else if(selectValue === 'artists'){
-                console.log('show artists')
+            else if(selectValue === 'songs'){
+                console.log('show songs');
                 artistResultsDiv.classList.toggle('show');
+            }
+            else{
+                console.log('show artists');
             }
         },
         loadSongToPlayer(result){
@@ -98,13 +98,16 @@ export default {
     font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
 
-.sort-select{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+p, .sort-select{
     font-family: 'IBM Plex Sans Arabic', sans-serif;
-    font-size: 2vh;
+    padding: 0;
+    margin: 5px;
     color: #22577a;
+    font-size: 1.8vh;
+}
+
+.sort-select{
+    text-align: center;
 }
 
 .show{
@@ -112,20 +115,16 @@ export default {
 }
 
 .single-result{
+    width: 75%;
     margin: 0 auto;
     padding: 1vh 1vw;
-    width: 75%;
     display: flex;
     font-family: 'IBM Plex Sans Arabic', sans-serif;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid #22577a;
 }
 
-.single-result p{
-    padding: 0;
-    margin: 5px;
-    color: #22577a;
-}
 
 .result-metadata{
     width: 50%;
