@@ -10,19 +10,18 @@
         </div>
         
         <div class="artist-metadata">
-            <ul>
+                <ul>
                     <h2>Albums: </h2>
                     <li v-for="album in artistInfo.products.albums.content" :key="album">
-                            {{album.name}} ({{album.year}})
+                            {{ album.name }} ({{ album.year }})
                     </li>
                 </ul>
-            <ul>
+                <ul>
                     <h2>Songs: </h2>
                     <li v-for="song in artistInfo.products.songs.content" :key="song">
-                            {{song.name}}
+                            {{ song.name }}
                     </li>
                 </ul>
-           
         </div>
         
         <div class="artist-description">
