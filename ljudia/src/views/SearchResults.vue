@@ -34,12 +34,17 @@
     </div>
 
     <div v-else class="no-results">
-            <h1> Sorry, we couldn't find any results for "{{ searchString }}"</h1>
+            <h1 class="no-result-heading"> Sorry, we couldn't find any results for "{{ searchString }}"</h1>
     </div>
 </template>
 
 <script>
 export default {
+    created(){
+        if(this.$store.state.searchString === ''){
+            this.$store.dispatch('search', this.$route.params.searchString)
+        }
+    },
     computed: {
         searchString() {
             return this.$store.state.searchString
@@ -51,7 +56,7 @@ export default {
     methods: {
         loadSongToPlayer(result){
             this.$store.dispatch('populateLoadedSong', result)
-            window.player.setVolume(50);
+            window.player.setVolume(50)
             window.player.loadVideoById(result.videoId)
         },
         addToQueue(result){
@@ -84,6 +89,12 @@ export default {
 }
 
 .results-heading{
+    text-align: center;
+    font-size: 3vh;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+.no-result-heading{
     text-align: center;
     font-size: 3vh;
     font-family: 'IBM Plex Sans Arabic', sans-serif;

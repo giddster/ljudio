@@ -19,5 +19,7 @@ name: 'NotFound',
 .notfound{
     text-align: center;
     margin-top: 200px;
+    font-size: 3vh;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
 </style>

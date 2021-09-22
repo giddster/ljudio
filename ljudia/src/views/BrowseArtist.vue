@@ -67,7 +67,6 @@ export default {
     padding: 1vh 1vw;
     display: flex;
     flex-direction: column;
-    
 }
 
 .artist-heading{

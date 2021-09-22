@@ -97,8 +97,5 @@ export default createStore({
       commit('removeQueueItem', data)
     }
   },
-
-  modules: {
-
-  }
+  
 })
