@@ -1,9 +1,13 @@
 <template>
     <div class="artist-container">
-        <h1 class="artist-heading">{{ artistInfo.name }}</h1>
-        <button @click="getArtistLink()"><i class="fas fa-share-square"></i> Share link </button>
+        <div class="artist-heading">
+            <h1 class="artist-header">{{ artistInfo.name }}</h1>
+            
+            <button @click="getArtistLink()"><i class="fas fa-share-square"></i> Share artist link </button>
 
-        <img class="thumbnail" :src="artistInfo.thumbnails[0].url" alt="">
+            <img class="thumbnail" :src="artistInfo.thumbnails[0].url" alt="">
+            
+        </div>
         
         <div class="artist-metadata">
             <ul>
@@ -33,14 +37,19 @@
 
 <script>
 export default {
+    data(){
+        return {
+            shareLink: window.location.origin + this.$route.path
+        }
+    },
     computed: {
         artistInfo() {
-            return this.$store.state.artistInfo
+            return this.$store.state.artistInfo;
         },
     },
     methods: {
         getArtistLink(){
-            console.log(this.$route)
+            alert(this.shareLink);
         }
     }
     
@@ -54,14 +63,34 @@ export default {
     padding: 1vh 1vw;
     display: flex;
     flex-direction: column;
+    
 }
+
 .artist-heading{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.artist-header{
     margin: 0;
     padding: 1vh 0;
     text-align: center;
     font-size: 3vh;
     font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
+
+/* .share-link{
+    display: none;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 0.5vh 0.5vw;
+    background: whitesmoke;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    color: #22577a;;
+    outline: 1px solid #22577a;
+} */
+
+.show{ display: flex }
 
 .artist-metadata{
     display: flex;
