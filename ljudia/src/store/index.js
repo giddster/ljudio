@@ -8,6 +8,8 @@ export default createStore({
 
     loadedSong: {},
 
+    isPlaying: false,
+
     queue: []
 
   },

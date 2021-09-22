@@ -50,6 +50,7 @@ export default {
     methods: {
         loadSongToPlayer(result){
             this.$store.dispatch('populateLoadedSong', result)
+            window.player.loadVideoById(result.videoId)
         },
         addToQueue(result){
             this.$store.dispatch('addToQueue', result)

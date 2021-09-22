@@ -68,7 +68,7 @@ export default {
     play(id){
         if(id){
           if(!this.isLoaded){
-                window.player.loadVideoById(this.$store.state.loadedSong.videoId);
+                window.player.loadVideoById(id);
                 window.player.playVideo();
                 this.isLoaded = true;
           } else {
