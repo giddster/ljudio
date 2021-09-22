@@ -28,6 +28,10 @@ export default createStore({
       state.loadedSong = data
     },
 
+    updateIsPlaying(state, data) {
+      state.isPlaying = data
+    },
+
     addQueueItem(state, data) {
       state.queue.push(data)
     },
@@ -49,6 +53,7 @@ export default createStore({
     
     populateLoadedSong({ commit }, data) {
       commit('setLoadedSong', data)
+      commit('updateIsPlaying', true)
     },
 
     addToQueue({ commit }, data) {

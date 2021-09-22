@@ -51,6 +51,9 @@ export default {
   computed: {
       loadedSong() {
           return this.$store.state.loadedSong;
+      },
+      isPlaying() {
+          return this.$store.state.isPlaying;
       }
   },
 
@@ -59,7 +62,6 @@ export default {
         isLoaded: false,
         isMuted: false,
         volume: 50,
-        isPlaying: false
       }
   },
 
@@ -75,13 +77,13 @@ export default {
                 window.player.playVideo();
           }
                 window.player.setVolume(this.volume);
-                this.isPlaying = true;
+                this.$store.commit('updateIsPlaying', true)
       }
     },
 
     pause(){
       window.player.pauseVideo();
-      this.isPlaying = false;
+      this.$store.commit('updateIsPlaying', false)
     },
 
     toggleMute(){
