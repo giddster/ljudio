@@ -25,7 +25,7 @@ font-family: 'IBM Plex Sans Arabic', sans-serif;
 font-family: 'Roboto', sans-serif; */
 
 body {
-    margin: 0 0 10vh 0;
+    margin: 0 0 15vh 0;
     background: #91daba;
     width: 100%;
 }
