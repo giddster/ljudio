@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import FAQ from '../views/FAQ.vue'
 import SearchResults from '../views/SearchResults.vue'
+import BrowseArtist from '../views/BrowseArtist.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     name: 'SearchResults',
     component: SearchResults
   },
+  {
+    path: '/artists/:browseId',
+    name: 'BrowseArtist',
+    component: BrowseArtist
+  }
 ]
 
 const router = createRouter({

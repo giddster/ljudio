@@ -76,9 +76,6 @@
 
 .queue-buttons button{
     color: #22577a;
-    background: #38a3a500;
-    border: none;
-    cursor: pointer;
 }
 
 .queue-buttons button:hover{

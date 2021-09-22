@@ -34,7 +34,7 @@ header, footer {
     position: fixed;
     left: 0;
     width: 100vw;
-    height: 8vh;
+    height: 7vh;
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
@@ -45,6 +45,16 @@ header {
 
 footer {
     bottom: 0;
+}
+
+button{
+    background: #38a3a500;
+    border: none;
+    cursor: pointer;
+}
+
+button:active{
+    background-color: #3ed9db;
 }
 
 #app {

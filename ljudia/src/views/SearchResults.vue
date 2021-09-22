@@ -14,6 +14,7 @@
                     <div class="result-buttons">
                         <button id="result-playbutton" @click="loadSongToPlayer(result)"> <i class="fas fa-play mini-buttons" id="mini-playbutton"></i> Play </button>
                         <button id="result-queuebutton" @click="addToQueue(result)"> <i class="fas fa-plus"></i> Add to queue </button>
+                        <button id="result-playbutton"> <i class="fas fa-info-circle"></i> View info </button>
                     </div>
                 </div>
         </div>
@@ -22,11 +23,11 @@
                 <div v-if="result.type == 'artist'" class="single-result">
                     <div class="result-metadata">
                         <img :src="result.thumbnails[1].url" alt="">
-                        <p>{{result.name}}</p> 
+                        <p>Artist/band name: {{result.name}}</p> 
                     </div>
 
                     <div class="result-buttons">
-                        <button id="result-playbutton"> <i class="fas fa-id-badge"></i> Visit artist profile </button>
+                        <button @click="browseArtist(result.browseId)" id="result-playbutton"> <i class="fas fa-info-circle"></i> View artist profile </button>
                     </div>
                 </div>
         </div>
@@ -55,6 +56,13 @@ export default {
         },
         addToQueue(result){
             this.$store.dispatch('addToQueue', result)
+        },
+        browseArtist(browseId){
+            this.$store.dispatch('getArtist', browseId)
+                .then( () => {
+                    this.$router.push(`/artists/${browseId}`)
+                })
+            
         }
     }
 }
@@ -114,13 +122,6 @@ p, .sort-select{
 .result-buttons button{
     font-size: 2.5vh;
     padding: 0 1vw;
-    background: #38a3a500;
-    border: none;
-    cursor: pointer;
-}
-
-.result-buttons button:active{
-    background-color: #3ed9db;
 }
 
 #result-playbutton{
