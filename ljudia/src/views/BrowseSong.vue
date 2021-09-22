@@ -25,6 +25,11 @@
 
 <script>
 export default {
+    created(){
+        if(!this.$store.state.songInfo.length){
+            this.$store.dispatch('getSong', this.$route.params.videoId)
+        }
+    },
     data(){
         return {
             shareLink: window.location.origin + this.$route.path

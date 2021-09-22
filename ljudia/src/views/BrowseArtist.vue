@@ -36,6 +36,11 @@
 
 <script>
 export default {
+    created(){
+        if(!this.$store.state.artistInfo.length){
+            this.$store.dispatch('getArtist', this.$route.params.browseId)
+        }
+    },
     data(){
         return {
             shareLink: window.location.origin + this.$route.path
