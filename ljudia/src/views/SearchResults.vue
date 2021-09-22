@@ -50,6 +50,7 @@ export default {
     methods: {
         loadSongToPlayer(result){
             this.$store.dispatch('populateLoadedSong', result)
+            window.player.setVolume(50);
             window.player.loadVideoById(result.videoId)
         },
         addToQueue(result){
@@ -111,7 +112,7 @@ p, .sort-select{
 }
 
 .result-buttons button{
-    font-size: 3vh;
+    font-size: 2.5vh;
     padding: 0 1vw;
     background: #38a3a500;
     border: none;

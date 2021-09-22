@@ -52,6 +52,9 @@ export default {
       loadedSong() {
           return this.$store.state.loadedSong;
       },
+      isLoaded() {
+          return this.$store.state.isLoaded;
+      },
       isPlaying() {
           return this.$store.state.isPlaying;
       }
@@ -59,7 +62,6 @@ export default {
 
   data(){
       return {
-        isLoaded: false,
         isMuted: false,
         volume: 50,
       }
@@ -68,17 +70,15 @@ export default {
   methods:{
     
     play(id){
-        if(id){
           if(!this.isLoaded){
                 window.player.loadVideoById(id);
                 window.player.playVideo();
-                this.isLoaded = true;
           } else {
                 window.player.playVideo();
           }
                 window.player.setVolume(this.volume);
                 this.$store.commit('updateIsPlaying', true)
-      }
+      
     },
 
     pause(){
