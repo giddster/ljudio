@@ -8,6 +8,8 @@ export default createStore({
 
     artistInfo: [],
 
+    songInfo: [],
+
     loadedSong: {},
 
     isloaded: false,
@@ -26,6 +28,10 @@ export default createStore({
     
     setSearch(state, data) {
       state.search = data.content
+    },
+
+    setSongInfo(state, data) {
+      state.songInfo = data
     },
 
     setArtistInfo(state, data) {
@@ -68,6 +74,13 @@ export default createStore({
       let data = await response.json()
       console.log(data)
       commit('setArtistInfo', data)
+    },
+    
+    async getSong({ commit }, videoId) {
+      let response = await fetch(`https://yt-music-api.herokuapp.com/api/yt/songs/${videoId}`)
+      let data = await response.json()
+      console.log(data)
+      commit('setSongInfo', data)
     },
     
     populateLoadedSong({ commit }, data) {

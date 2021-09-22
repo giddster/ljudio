@@ -14,7 +14,7 @@
                     <div class="result-buttons">
                         <button id="result-playbutton" @click="loadSongToPlayer(result)"> <i class="fas fa-play mini-buttons" id="mini-playbutton"></i> Play </button>
                         <button id="result-queuebutton" @click="addToQueue(result)"> <i class="fas fa-plus"></i> Add to queue </button>
-                        <button id="result-playbutton"> <i class="fas fa-info-circle"></i> View info </button>
+                        <button @click="browseSong(result.videoId)"> <i class="fas fa-info-circle info-button"></i> View info </button>
                     </div>
                 </div>
         </div>
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="result-buttons">
-                        <button @click="browseArtist(result.browseId)" id="result-playbutton"> <i class="fas fa-info-circle"></i> View artist profile </button>
+                        <button @click="browseArtist(result.browseId)" class="mini-buttons info-button"> <i class="fas fa-info-circle"></i> View artist profile </button>
                     </div>
                 </div>
         </div>
@@ -61,6 +61,13 @@ export default {
             this.$store.dispatch('getArtist', browseId)
                 .then( () => {
                     this.$router.push(`/artists/${browseId}`)
+                })
+            
+        },
+        browseSong(videoId){
+            this.$store.dispatch('getSong', videoId)
+                .then( () => {
+                    this.$router.push(`/songs/${videoId}`)
                 })
             
         }
@@ -122,6 +129,10 @@ p, .sort-select{
 .result-buttons button{
     font-size: 2.5vh;
     padding: 0 1vw;
+}
+
+.info-button{
+    color: #22577a;
 }
 
 #result-playbutton{

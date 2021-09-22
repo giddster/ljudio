@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import FAQ from '../views/FAQ.vue'
 import SearchResults from '../views/SearchResults.vue'
 import BrowseArtist from '../views/BrowseArtist.vue'
+import BrowseSong from '../views/BrowseSong.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/artists/:browseId',
     name: 'BrowseArtist',
     component: BrowseArtist
+  },
+  {
+    path: '/songs/:videoId',
+    name: 'BrowseSong',
+    component: BrowseSong
   }
 ]
 
