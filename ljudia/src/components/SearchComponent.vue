@@ -9,7 +9,6 @@
 
 <style scoped>
 .searchbar{
-    width: 70%;
     height: 3vh;
     border: 1px solid #00B4CC;
     border-right: none;

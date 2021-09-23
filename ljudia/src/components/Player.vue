@@ -125,7 +125,16 @@ export default {
 
 <style scoped>
 
-/* minified player */
+@media screen and (max-width: 501px){
+    .miniplayer-metadata{
+        display: none;
+    }
+
+    .miniplayer-buttons, .miniplayer-volume{
+        flex-grow: 1;
+    }
+    
+}
 .miniplayer-parent {
     display: grid;
     align-items: center;

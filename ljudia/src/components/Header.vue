@@ -21,7 +21,7 @@
 </template>
 
 <style>
-@media screen and (max-width: 650px){
+@media screen and (max-width: 800px){
     .header-left{
         display: none;
     }
