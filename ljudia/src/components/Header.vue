@@ -56,7 +56,6 @@
 }
 
 .header-left a:hover{
-    zoom: 1.1;
     color: #0063a5;
 }
 
