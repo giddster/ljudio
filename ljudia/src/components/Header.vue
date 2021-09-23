@@ -21,6 +21,15 @@
 </template>
 
 <style>
+@media screen and (max-width: 650px){
+    .header-left{
+        display: none;
+    }
+    .header-middle, .header-right{
+        flex-grow: 1;
+    }
+}
+
 
 .header-main{
     background: #38a3a5c9;
@@ -38,7 +47,7 @@
 
 .header-left {
     width: 33vw;
-    font-size: 3vh;
+    font-size: 1.4rem;
     font-family: 'Bungee', cursive;
 }
 
@@ -54,6 +63,8 @@
 
 .header-middle {
     width: 33vw;
+    display: flex;
+    justify-content: center;
 }
 
 .header-right {
