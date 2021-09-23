@@ -5,12 +5,14 @@ export default createStore({
     searchString: '',
 
     search: [],
-
+    
     artistInfo: [],
 
     songInfo: [],
 
     loadedSong: {},
+
+    loadedSongIndex: 0,
 
     isloaded: false,
 
@@ -40,6 +42,10 @@ export default createStore({
 
     setLoadedSong(state, data) {
       state.loadedSong = data
+    },
+
+    setLoadedSongIndex(state, data) {
+      state.loadedSongIndex = data
     },
 
     updateIsLoaded(state, data) {
@@ -87,6 +93,12 @@ export default createStore({
       commit('setLoadedSong', data)
       commit('updateIsLoaded', true)
       commit('updateIsPlaying', true)
+    },
+
+    findLoadedSongIndex({ commit }, videoId){
+      let loadedSongIndex = this.state.search.findIndex((element) => element.videoId === videoId)
+      commit('setLoadedSongIndex', loadedSongIndex)
+      console.log(loadedSongIndex)
     },
 
     addToQueue({ commit }, data) {

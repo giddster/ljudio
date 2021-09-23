@@ -56,6 +56,7 @@ export default {
     methods: {
         loadSongToPlayer(result){
             this.$store.dispatch('populateLoadedSong', result)
+            this.$store.dispatch('findLoadedSongIndex', result.videoId)
             window.player.setVolume(50)
             window.player.loadVideoById(result.videoId)
         },

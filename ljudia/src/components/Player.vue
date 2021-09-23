@@ -10,7 +10,7 @@
 
         <div class="miniplayer-buttons"> 
             <button>
-                <i class="fas fa-step-backward mini-buttons" id="mini-previousbutton"></i>
+                <i @click="playPreviousSong()" class="fas fa-step-backward mini-buttons" id="mini-previousbutton"></i>
             </button>
 
             <button>
@@ -19,7 +19,7 @@
             </button>
 
             <button>
-                <i class="fas fa-step-forward mini-buttons" id="mini-nextbutton"></i>
+                <i @click="playNextSong()" class="fas fa-step-forward mini-buttons" id="mini-nextbutton"></i>
             </button>
 
         </div>
@@ -84,6 +84,22 @@ export default {
     pause(){
       window.player.pauseVideo();
       this.$store.commit('updateIsPlaying', false)
+    },
+
+    playNextSong(){
+        let songIndex = this.$store.state.loadedSongIndex
+        let nextSong = this.$store.state.search[songIndex + 1] 
+        this.$store.dispatch('findLoadedSongIndex', nextSong.videoId)
+        window.player.loadVideoById(nextSong.videoId)
+        this.$store.dispatch('populateLoadedSong', nextSong)
+    },
+
+    playPreviousSong(){
+        let songIndex = this.$store.state.loadedSongIndex
+        let previousSong = this.$store.state.search[songIndex - 1]
+        this.$store.dispatch('findLoadedSongIndex', previousSong.videoId)
+        window.player.loadVideoById(previousSong.videoId)
+        this.$store.dispatch('populateLoadedSong', previousSong)
     },
 
     toggleMute(){
