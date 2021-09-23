@@ -47,7 +47,7 @@
 
 .header-left {
     width: 33vw;
-    font-size: 1.8rem;
+    font-size: 3vh;
     font-family: 'Bungee', cursive;
 }
 
