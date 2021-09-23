@@ -53,7 +53,8 @@ export default {
     },
     methods: {
         getArtistLink(){
-            alert(this.shareLink);
+            navigator.clipboard.writeText(this.shareLink);
+            alert('Link copied to clipboard');
         }
     }
     

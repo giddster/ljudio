@@ -42,7 +42,8 @@ export default {
     },
     methods: {
         getSongLink(){
-            alert(this.shareLink);
+            navigator.clipboard.writeText(this.shareLink);
+            alert('Link copied to clipboard');
         },
         
         getClearDuration(millliseconds){
