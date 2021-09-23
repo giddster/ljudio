@@ -77,29 +77,29 @@ export default {
                 window.player.playVideo();
           }
                 window.player.setVolume(this.volume);
-                this.$store.commit('updateIsPlaying', true)
+                this.$store.commit('updateIsPlaying', true);
       
     },
 
     pause(){
       window.player.pauseVideo();
-      this.$store.commit('updateIsPlaying', false)
+      this.$store.commit('updateIsPlaying', false);
     },
 
     playNextSong(){
-        let songIndex = this.$store.state.loadedSongIndex
-        let nextSong = this.$store.state.search[songIndex + 1] 
-        this.$store.dispatch('findLoadedSongIndex', nextSong.videoId)
-        window.player.loadVideoById(nextSong.videoId)
-        this.$store.dispatch('populateLoadedSong', nextSong)
+        let songIndex = this.$store.state.loadedSongIndex;
+        let nextSong = this.$store.state.search[songIndex + 1]; 
+        this.$store.dispatch('findLoadedSongIndex', nextSong.videoId);
+        window.player.loadVideoById(nextSong.videoId);
+        this.$store.dispatch('populateLoadedSong', nextSong);
     },
 
     playPreviousSong(){
-        let songIndex = this.$store.state.loadedSongIndex
-        let previousSong = this.$store.state.search[songIndex - 1]
-        this.$store.dispatch('findLoadedSongIndex', previousSong.videoId)
-        window.player.loadVideoById(previousSong.videoId)
-        this.$store.dispatch('populateLoadedSong', previousSong)
+        let songIndex = this.$store.state.loadedSongIndex;
+        let previousSong = this.$store.state.search[songIndex - 1];
+        this.$store.dispatch('findLoadedSongIndex', previousSong.videoId);
+        window.player.loadVideoById(previousSong.videoId);
+        this.$store.dispatch('populateLoadedSong', previousSong);
     },
 
     toggleMute(){
