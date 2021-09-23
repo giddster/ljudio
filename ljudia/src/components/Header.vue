@@ -63,8 +63,6 @@
 
 .header-middle {
     width: 33vw;
-    display: flex;
-    justify-content: center;
 }
 
 .header-right {
