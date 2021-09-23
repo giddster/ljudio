@@ -20,6 +20,15 @@
 
 <style>
 
+@media screen and (max-width: 501px){
+    .footer-left{
+        display: none;
+    }
+    .footer-middle, .footer-right{
+        flex-grow: 1;
+    }
+}
+
 .footer-main{
     background: #22577ae1;
     color: #80ed99;
