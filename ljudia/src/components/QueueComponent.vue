@@ -15,10 +15,10 @@
                     </div>
                     
                     <div class="queue-buttons">
-                        <button>
+                        <button @click="moveUpInQueue(item)">
                             <i class="fas fa-chevron-up"></i>
                         </button>
-                        <button>
+                        <button @click="moveDownInQueue(item)">
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <button @click="removeFromQueue(item)">
@@ -127,15 +127,30 @@
 
 <script>
 export default {
+    
     computed: {
         myQueue(){
             return this.$store.state.queue;
         }
     },
 
+    // watch: {
+    //     myQueue(updatedQueue) {
+
+    //     }
+    // },
+
     methods: {
         showQueue(){
             document.getElementById('queueDropdown').classList.toggle("show")
+        },
+
+        moveUpInQueue(item){
+            this.$store.dispatch('moveUpInQueue', item)
+        },
+
+        moveDownInQueue(item){
+            this.$store.dispatch('moveDownInQueue', item)
         },
 
         removeFromQueue(item){

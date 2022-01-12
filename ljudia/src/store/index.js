@@ -60,10 +60,29 @@ export default createStore({
       state.queue.push(data)
     },
 
+    moveQueueItemUp(state, data) {
+      const index = state.queue.indexOf(data)
+      
+      if (index > 0){
+        state.queue.splice(index, 1)
+        state.queue.splice(index - 1, 0, data)
+      }
+    },
+
+    moveQueueItemDown(state, data) {
+      const index = state.queue.indexOf(data)
+
+      if (index < state.queue.length - 1){
+        state.queue.splice(index, 1)
+        state.queue.splice(index + 1, 0, data)
+      }
+    },
+
     removeQueueItem(state, data) {
       const index = state.queue.indexOf(data)
+      
       if (index > -1){
-        state.queue.splice(index , 1)
+        state.queue.splice(index, 1)
       }
     },
 
@@ -77,7 +96,6 @@ export default createStore({
     async search({ commit }, searchString) {
       let response = await fetch(`https://yt-music-api.herokuapp.com/api/yt/search/:${searchString}`)
       let data = await response.json()
-      console.log(data)
       commit('setSearchString', searchString)
       commit('setSearch', data)
     },
@@ -91,7 +109,6 @@ export default createStore({
     async getSong({ commit }, videoId) {
       let response = await fetch(`https://yt-music-api.herokuapp.com/api/yt/songs/${videoId}`)
       let data = await response.json()
-      console.log(data)
       commit('setSongInfo', data)
     },
     
@@ -113,6 +130,14 @@ export default createStore({
 
     removeFromQueue({ commit }, data) {
       commit('removeQueueItem', data)
+    },
+
+    moveUpInQueue( { commit}, data){
+      commit('moveQueueItemUp', data)
+    },
+
+    moveDownInQueue( {commit }, data) {
+      commit('moveQueueItemDown', data)
     },
 
     emptyQueue( {commit }) {

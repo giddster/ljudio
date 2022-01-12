@@ -35,13 +35,6 @@
             <input @change="setVolume()" type="range" min="0" max="100" value="50" class="slider" id="volumeSlider">
         </div>
 
-        <!-- <div class="miniplayer-expander"> 
-            <button>
-                <i class="fas fa-angle-double-up mini-buttons" id="mini-expandbutton"></i> 
-            </button>
-            <p>Expand player</p>
-        </div> -->
-
     </div>
     
 </template>
