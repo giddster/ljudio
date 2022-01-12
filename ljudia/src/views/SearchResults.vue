@@ -45,6 +45,7 @@ export default {
             this.$store.dispatch('search', this.$route.params.searchString)
         }
     },
+    
     computed: {
         searchString() {
             return this.$store.state.searchString
@@ -53,6 +54,7 @@ export default {
             return this.$store.state.search
         }
     },
+
     methods: {
         loadSongToPlayer(result){
             this.$store.dispatch('populateLoadedSong', result)
@@ -60,9 +62,11 @@ export default {
             window.player.setVolume(50)
             window.player.loadVideoById(result.videoId)
         },
+
         addToQueue(result){
             this.$store.dispatch('addToQueue', result)
         },
+
         browseArtist(browseId){
             this.$store.dispatch('getArtist', browseId)
                 .then( () => {
@@ -70,6 +74,7 @@ export default {
                 })
             
         },
+
         browseSong(videoId){
             this.$store.dispatch('getSong', videoId)
                 .then( () => {
