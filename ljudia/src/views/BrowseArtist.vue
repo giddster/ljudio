@@ -3,8 +3,9 @@
         <div class="artist-heading">
             <h1 class="artist-header">{{ artistInfo.name }}</h1>
             
-            <button @click="getArtistLink()"><i class="fas fa-share-square"></i> Share artist link </button>
-
+            <button @click="getArtistLink()" class="sharebutton" title="Copy link to clipboard"><i class="fas fa-share-square"></i> Get artist link </button>
+            <span class="copylinkconfirm"> Copied to clipboard! <i class="fas fa-check"></i></span>
+            
             <img class="thumbnail" :src="artistInfo.thumbnails[0].url" alt="">
             
         </div>
@@ -54,7 +55,10 @@ export default {
     methods: {
         getArtistLink(){
             navigator.clipboard.writeText(this.shareLink);
-            alert('Link copied to clipboard');
+            document.querySelector('.copylinkconfirm').classList.toggle("show")
+            setTimeout (function() {
+                document.querySelector('.copylinkconfirm').classList.toggle("show")
+            }, 5000)
         }
     }
     
@@ -68,6 +72,7 @@ export default {
     padding: 1vh 1vw;
     display: flex;
     flex-direction: column;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
 
 .artist-heading{
@@ -80,19 +85,27 @@ export default {
     padding: 1vh 0;
     text-align: center;
     font-size: 3vh;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
 
-/* .share-link{
+.sharebutton:active {
+    background: none;
+    border: none;
+    border-radius: 30px;
+    color: #2dc787;
+}
+
+.copylinkconfirm {
     display: none;
-    margin: 0 auto;
-    width: fit-content;
-    padding: 0.5vh 0.5vw;
-    background: whitesmoke;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
-    color: #22577a;;
-    outline: 1px solid #22577a;
-} */
+    font-style: italic;
+    font-size: 1.6vh;
+    color: green;
+    text-align: center;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+}
 
 .show{ display: flex }
 

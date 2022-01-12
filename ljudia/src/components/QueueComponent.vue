@@ -75,7 +75,6 @@
     font-size: 1.5vh;
     flex-shrink: 0;
     margin-right: 10px;
-    
 }
 
 .queue-buttons button{

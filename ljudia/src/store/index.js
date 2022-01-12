@@ -85,7 +85,6 @@ export default createStore({
     async getArtist({ commit }, browseId) {
       let response = await fetch(`https://yt-music-api.herokuapp.com/api/yt/artist/${browseId}`)
       let data = await response.json()
-      console.log(data)
       commit('setArtistInfo', data)
     },
     
