@@ -45,6 +45,7 @@ header {
 
 footer {
     bottom: 0;
+    border-top: 1px solid #0d3c5ce1;
 }
 
 button{
