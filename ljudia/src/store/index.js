@@ -61,7 +61,14 @@ export default createStore({
     },
 
     removeQueueItem(state, data) {
-      state.queue.pop(data)
+      const index = state.queue.indexOf(data)
+      if (index > -1){
+        state.queue.splice(index , 1)
+      }
+    },
+
+    emptyQueue(state) {
+      state.queue = []
     }
 
   },
@@ -107,6 +114,10 @@ export default createStore({
 
     removeFromQueue({ commit }, data) {
       commit('removeQueueItem', data)
+    },
+
+    emptyQueue( {commit }) {
+      commit('emptyQueue')
     }
   },
   

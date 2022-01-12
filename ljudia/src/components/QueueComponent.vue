@@ -22,10 +22,13 @@
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <button @click="removeFromQueue(item)">
-                            <i class="fas fa-trash-alt"></i>
+                            <i class="far fa-times-circle removebutton"></i>
                         </button>
                     </div>
                 </div>
+            <div v-if="myQueue.length" class="clear-queue">
+                <button @click="clearQueue"><i class="fas fa-trash-alt"></i> Clear queue</button>
+            </div>
         </div>
     </div>
     
@@ -72,6 +75,7 @@
     font-size: 1.5vh;
     flex-shrink: 0;
     margin-right: 10px;
+    
 }
 
 .queue-buttons button{
@@ -79,7 +83,9 @@
 }
 
 .queue-buttons button:hover{
-    background-color: #38a3a5;
+    background-color: #83b8b9;
+    border: none;
+    border-radius: 30px;
 }
 
 .queue-buttons button:active{
@@ -92,6 +98,28 @@
 
 .queue-header{
     font-family: 'Bungee', cursive;
+}
+
+.clear-queue{
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 1vh;
+    border: 1px solid #22577a;
+}
+
+.clear-queue button {
+    font-size: 20px;
+    color:rgba(250, 146, 146, 0.808);
+}
+
+.clear-queue button:hover {
+    border: none;
+    border-radius: 30px;
+    background-color: lightgray;
+}
+
+.clear-queue button:active {
+    color: rgba(245, 135, 135, 0.877);
 }
 
 .show {display:flex;}
@@ -108,11 +136,15 @@ export default {
 
     methods: {
         showQueue(){
-            document.getElementById('queueDropdown').classList.toggle("show");
+            document.getElementById('queueDropdown').classList.toggle("show")
         },
 
         removeFromQueue(item){
             this.$store.dispatch('removeFromQueue', item)
+        },
+
+        clearQueue(){
+            this.$store.dispatch('emptyQueue')
         }
     }
 }
